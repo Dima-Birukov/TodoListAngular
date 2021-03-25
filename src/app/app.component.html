@@ -1,10 +1,6 @@
 <h1>{{ title }}</h1>
-<input type="text"/>
-<button (click)="addItem('asd')">Add Item</button>
-<ul>
-  <li *ngFor="let item of items">
-    <input [checked]="item.completed" (change)="toggleCompleted(item)" type="checkbox"/>
-    <label>{{item.title}}</label>
-    <button (click)="removeItem(item)">X</button>
-  </li>
-</ul>
+
+<app-item-form (add)="addItem($event)"></app-item-form>
+
+<app-list [items]="items" (remove)="removeItem($event)"></app-list>
+

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TodolistService } from './services/todolist.service';
 import { TodoItem } from './services/item';
+import { ItemFormComponent } from './item-form/item-form.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,19 +10,20 @@ import { TodoItem } from './services/item';
 export class AppComponent {
   title = 'Todo List';
 
-  constructor(public todolist: TodolistService<TodoItem>) {}
+  constructor(private todolist: TodolistService<TodoItem>,
+              private form: ItemFormComponent) {}
 
   addItem(title: string): void{
     this.todolist.add(new TodoItem(title));
   }
-  get items(): Array<TodoItem>{
+
+  get items(): TodoItem[]{
     return this.todolist.list;
   }
-  removeItem(item: TodoItem): void {
+
+  removeItem(item: TodoItem): void{
     this.todolist.remove(item);
   }
-  toggleCompleted(item: TodoItem): void {
-    item.toggleCompleted();
-  }
+
 }
 
