@@ -17,8 +17,6 @@ export class AppComponent {
   get items(): Array<TodoItem>{
     return this.todolist.list;
   }
-
-
   removeItem(item: TodoItem): void {
     this.todolist.remove(item);
   }
