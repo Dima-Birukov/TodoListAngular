@@ -8,6 +8,8 @@ import {AuthModule} from './auth/auth.module';
 import {RouterModule} from '@angular/router';
 import {SignInComponent} from './auth/sign-in/sign-in.component';
 import {TodolistComponent} from './todolist/todolist.component';
+import {UserModule} from './user/user.module';
+import {ProfileComponent} from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,11 @@ import {TodolistComponent} from './todolist/todolist.component';
     BrowserModule,
     TodolistModule,
     AuthModule,
+    UserModule,
     RouterModule.forRoot([
       {path: '', component: SignInComponent},
-      {path: 'list', component: TodolistComponent}
+      {path: 'list', component: TodolistComponent},
+      {path: 'profile', component: ProfileComponent}
     ])
   ],
   providers: [],
