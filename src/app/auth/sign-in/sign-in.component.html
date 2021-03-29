@@ -1,6 +1,6 @@
-<form>
+
   <span>Login</span> <br/>
-  <input placeholder="username" type="text"/> <br/>
-  <input placeholder="pasword" type="password"/> <br/>
-  <button>submit</button>
-</form>
+  <input placeholder="username" type="text" #username/> <br/>
+  <input placeholder="password" type="password" #password/> <br/>
+  <button (click)="signIn(username.value, password.value)">submit</button>
+

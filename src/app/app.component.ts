@@ -1,16 +1,19 @@
 import {Component} from '@angular/core';
+import {AuthService, CurrentUser} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   template: `
-    <ul>
+    <ul *ngIf="currentUser">
         <div>
-        <li><a routerLink="/">home</a></li>
-        <li><a routerLink="/list">list</a></li>
+          <li><a routerLink="/list">list</a></li>
+          <li><a routerLink="/profile">profile</a> </li>
         </div>
-      <li><a routerLink="/profile">profile</a> </li>
+        <span (click)="logOut()">logout</span>
+
     </ul>
-    <router-outlet></router-outlet>`,
+    <router-outlet></router-outlet>
+  `,
   styles: [
     `
       ul{
@@ -31,6 +34,12 @@ import {Component} from '@angular/core';
   ]
 })
 export class AppComponent {
-
+  constructor(public authService: AuthService) {}
+  get currentUser(): CurrentUser | null{
+    return this.authService.currentUser;
+  }
+  logOut(): void{
+    this.authService.logOut();
+  }
 }
 

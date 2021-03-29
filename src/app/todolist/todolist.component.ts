@@ -35,7 +35,9 @@ import {TodoItem} from './services/item';
 export class TodolistComponent {
   title = 'Todo List';
 
-  constructor(private todolist: TodolistService<TodoItem>) {}
+  constructor(private todolist: TodolistService<TodoItem>) {
+    todolist.getCurrentTodos();
+  }
 
   addItem(title: string): void{
     this.todolist.add(new TodoItem(title));

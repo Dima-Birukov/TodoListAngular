@@ -10,6 +10,7 @@ import {SignInComponent} from './auth/sign-in/sign-in.component';
 import {TodolistComponent} from './todolist/todolist.component';
 import {UserModule} from './user/user.module';
 import {ProfileComponent} from './user/profile/profile.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {ProfileComponent} from './user/profile/profile.component';
     TodolistModule,
     AuthModule,
     UserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: SignInComponent},
       {path: 'list', component: TodolistComponent},

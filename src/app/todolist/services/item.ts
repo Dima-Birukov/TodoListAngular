@@ -2,20 +2,24 @@ export interface Completable{
   isCompleted(): boolean;
 }
 export class TodoItem implements Completable{
-  private readonly id: number;
+  public readonly id: number;
   public title: string;
   public completed: boolean;
 
-  constructor(title: string) {
+
+  constructor(title: string, id: number = Date.now(), completed: boolean = false) {
     this.title = title;
-    this.id = Date.now();
-    this.completed = false;
+    this.id = id;
+    this.completed = completed;
+  }
+  setCompleted(status: boolean): void{
+    this.completed = status;
+  }
+  isCompleted(): boolean {
+    return this.completed;
   }
 
   toggleCompleted(): void{
     this.completed = !this.completed;
-  }
-  isCompleted(): boolean {
-    return this.completed;
   }
 }
