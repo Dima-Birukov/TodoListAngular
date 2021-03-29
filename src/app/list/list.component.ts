@@ -14,5 +14,9 @@ export class ListComponent {
   @Output()
   remove = new EventEmitter<TodoItem>();
 
+  toggleCompleted(item: TodoItem): void{
+    item.toggleCompleted();
+  }
+
 
 }

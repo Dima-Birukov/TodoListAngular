@@ -6,7 +6,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
 })
 export class ItemFormComponent{
   @Output()
-  add = new EventEmitter();
+  add = new EventEmitter<string>();
 
 
 }

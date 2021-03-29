@@ -1,0 +1,28 @@
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: lightgreen;}
+
+}
+
+:host{
+  display: block;
+}
+
+li{
+  border: 1px solid black;
+  list-style-type: none;
+  padding: 1px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+ul{
+  padding: 0;
+}
+.list-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

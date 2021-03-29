@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
+import {Completable} from './item';
 
 @Injectable({providedIn: 'root'})
-export class TodolistService<T>{
-  list: Array<T>;
+export class TodolistService<T extends Completable> {
+
+  list: Array<T> = [];
   title: string;
 
   constructor() {
@@ -10,17 +12,21 @@ export class TodolistService<T>{
     this.title = 'TodoList';
   }
 
-  add(item: T): void{
+  add(item: T): void {
 
     this.list.push(item);
   }
-  remove(item: T): void{
+
+  remove(item: T): void {
     this.list = this.list
-      .filter(e =>  e !== item);
+      .filter(e => e !== item);
   }
-  getCount(): number{
+
+  getCount(): number {
     return this.list.length;
   }
 
-
+  clearCompleted(): void {
+    this.list = this.list.filter(e => !e.isCompleted());
+  }
 }

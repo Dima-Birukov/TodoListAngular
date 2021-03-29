@@ -1,5 +1,7 @@
-
-export class TodoItem{
+export interface Completable{
+  isCompleted(): boolean;
+}
+export class TodoItem implements Completable{
   private readonly id: number;
   public title: string;
   public completed: boolean;
@@ -12,5 +14,8 @@ export class TodoItem{
 
   toggleCompleted(): void{
     this.completed = !this.completed;
+  }
+  isCompleted(): boolean {
+    return this.completed;
   }
 }

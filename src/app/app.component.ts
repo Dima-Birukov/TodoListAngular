@@ -10,8 +10,7 @@ import { ItemFormComponent } from './item-form/item-form.component';
 export class AppComponent {
   title = 'Todo List';
 
-  constructor(private todolist: TodolistService<TodoItem>,
-              private form: ItemFormComponent) {}
+  constructor(private todolist: TodolistService<TodoItem>) {}
 
   addItem(title: string): void{
     this.todolist.add(new TodoItem(title));
@@ -25,5 +24,8 @@ export class AppComponent {
     this.todolist.remove(item);
   }
 
+  clearCompleted(): void {
+    this.todolist.clearCompleted();
+  }
 }
 

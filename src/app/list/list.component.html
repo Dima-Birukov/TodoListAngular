@@ -1,4 +1,4 @@
-<ul>
+<ul class="list-container">
   <li *ngFor="let item of items">
     <input [checked]="item.completed" (change)="toggleCompleted(item)" type="checkbox"/>
     <label>{{item.title}}</label>
