@@ -1,31 +1,16 @@
-import { Component } from '@angular/core';
-import { TodolistService } from './services/todolist.service';
-import { TodoItem } from './services/item';
-import { ItemFormComponent } from './item-form/item-form.component';
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+<!--    <ul>-->
+<!--    <li><a routerLink="/">home</a></li>-->
+<!--    <li><a routerLink="/list">list</a></li>-->
+<!--    </ul>-->
+    <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {
-  title = 'Todo List';
 
-  constructor(private todolist: TodolistService<TodoItem>) {}
-
-  addItem(title: string): void{
-    this.todolist.add(new TodoItem(title));
-  }
-
-  get items(): TodoItem[]{
-    return this.todolist.list;
-  }
-
-  removeItem(item: TodoItem): void{
-    this.todolist.remove(item);
-  }
-
-  clearCompleted(): void {
-    this.todolist.clearCompleted();
-  }
 }
 
