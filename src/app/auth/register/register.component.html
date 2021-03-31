@@ -1,0 +1,22 @@
+<h1>Register</h1>
+
+<form [formGroup]="registerForm"
+      (ngSubmit)="register()">
+  <ul>
+    <li><input placeholder=""
+               formControlName="name"/>name</li>
+    <li><input placeholder=""
+               formControlName="username"/>username</li>
+    <li><input placeholder=""
+               formControlName="password" type="password"/>password</li>
+    <li><input placeholder=""
+               formControlName="email"/>email</li>
+    <li><input placeholder=""
+               formControlName="agree" type="checkbox" />agree to terms</li>
+
+    <li><button>submit</button></li>
+  </ul>
+
+
+
+</form>

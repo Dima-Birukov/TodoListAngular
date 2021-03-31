@@ -8,9 +8,7 @@ export interface CurrentUser{
   email: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class AuthService {
   currentUser: CurrentUser | null;
   constructor(private router: Router,

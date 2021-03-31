@@ -3,4 +3,5 @@
   <input placeholder="username" type="text" #username/> <br/>
   <input placeholder="password" type="password" #password/> <br/>
   <button (click)="signIn(username.value, password.value)">submit</button>
-
+  <a routerLink="register">Register</a>
+  <button [appLimitClicks]="4">click me</button>

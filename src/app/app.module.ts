@@ -4,13 +4,13 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {TodolistModule} from './todolist/todolist.module';
-import {AuthModule} from './auth/auth.module';
 import {RouterModule} from '@angular/router';
-import {SignInComponent} from './auth/sign-in/sign-in.component';
 import {TodolistComponent} from './todolist/todolist.component';
 import {UserModule} from './user/user.module';
 import {ProfileComponent} from './user/profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
+import {LimitClicksDirective} from './auth/limit-clicks.directive';
+
 
 @NgModule({
   declarations: [
@@ -19,16 +19,20 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     TodolistModule,
-    AuthModule,
     UserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: SignInComponent},
+      {
+        path: 'auth', loadChildren: () =>
+          import('./auth/auth.module').then(m => m.AuthModule)
+      },
       {path: 'list', component: TodolistComponent},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
     ])
   ],
-  providers: [],
+  exports: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

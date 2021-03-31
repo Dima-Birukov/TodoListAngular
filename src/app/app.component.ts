@@ -4,6 +4,9 @@ import {AuthService, CurrentUser} from './auth/auth.service';
 @Component({
   selector: 'app-root',
   template: `
+    <div>
+      <a routerLink="/auth">sign in</a>
+    </div>
     <ul *ngIf="currentUser">
         <div>
           <li><a routerLink="/list">list</a></li>
@@ -12,6 +15,7 @@ import {AuthService, CurrentUser} from './auth/auth.service';
         <span (click)="logOut()">logout</span>
 
     </ul>
+
     <router-outlet></router-outlet>
   `,
   styles: [
